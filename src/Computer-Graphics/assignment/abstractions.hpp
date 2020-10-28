@@ -287,17 +287,13 @@ namespace cg_abstractions { //(x > camera.Position.x + 5 || x < camera.Position.
                 shader.setMat4("model", rLeg);
                 glDrawArrays(GL_TRIANGLES, 0, 36);
             }
-            void move(FPSCamera player) {
+            void move(FPSCamera player, float DELTATIME) {
                 float xVector = player.Position.x - head[3].x;
                 float zVector = player.Position.z - head[3].z;
                 float h = std::sqrt(std::pow(xVector, 2) + std::pow(zVector, 2));
-                xVector = (xVector / h) * 0.25f;
-                zVector = (zVector / h) * 0.25f;
-                xVector = xVector < 0 ? (xVector < -moveSpeed) ? -moveSpeed 
-                    : xVector : (xVector > 0) ? (xVector > moveSpeed) ? moveSpeed : xVector : 0; // big ugly ternary that just truncates value to between 0.25 and -0.25.
-                zVector = zVector < 0 ? (zVector < -moveSpeed) ? -moveSpeed
-                    : zVector : (zVector > 0) ? (zVector > moveSpeed) ? moveSpeed : zVector : 0; // big ugly ternary that just truncates value to between 0.25 and -0.25.
-                head = glm::translate(head, glm::vec3{xVector, 0.0f, zVector});
+                xVector = (xVector / h) * 5.0f;
+                zVector = (zVector / h) * 5.0f;
+                head = glm::translate(head, glm::vec3{xVector * DELTATIME, 0.0f, zVector * DELTATIME});
             }
             bool touched(FPSCamera player) {
                 float xVector = player.Position.x - head[3].x;

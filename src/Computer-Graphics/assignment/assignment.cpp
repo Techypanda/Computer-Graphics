@@ -436,7 +436,7 @@ int main()
             if (!antoni.touched(camera)) {
                 if (!displayingNote)
                     if (!win)
-                        antoni.move(camera);
+                        antoni.move(camera, deltaTime);
                 antoni.face(camera);
             } else {
                 camera.dead(true);
