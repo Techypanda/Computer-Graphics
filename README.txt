@@ -1,5 +1,7 @@
 Relevant Source Files: (Found in src/Computer-Graphics/assignment)
 
+OpenGL - Computer Graphics Assignment
+
 abstractions.hpp: This contains all things I decided were annoying in OpenGL and abstracted away into a Object.
 assignment.cpp: This contains the main method that actually runs the OpenGL program, it sets everything up and runs
 FPSCamera.hpp: A Modified version of LearnOpenGL's flying camera.
